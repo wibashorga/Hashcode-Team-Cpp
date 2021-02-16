@@ -8,20 +8,21 @@ using namespace std;
 vector<string> split(string& s)
 {
     vector <string> v = { "" };
-    for (auto& c : s)
+    for (int i =0; i < s.size(); i++)
     {
-        if (c == ' ')
+        if (s[i] == ' ')
         {
-            if (v.back().size() && (&c != &s.back())) v.push_back("");
+            if (v.back().size() && i!=s.size()-1 && s[i+1]!=' ') v.push_back("");
         }
         else
         {
-            v.back() += c;
+            v.back() += s[i];
         }
     }
     return v;
 }
 
+//transforme un vecteur de string en vecteur d'entiers
 vector <int> str_to_int_vector(vector<string>& input)
 {
     vector <int> output;
@@ -45,7 +46,9 @@ void load_data_in_place(string path, vector<vector<string>>& buffer)
     }
 }
 
-vector <vector<string>> load_data(string path)
+
+/** Retourne un vector<vector<string>> des entrées*/
+vector <vector<string>> load_data_as_vector(string path)
 {
     ifstream input_file(path.c_str());
     vector<vector<string>> buffer;
@@ -55,6 +58,22 @@ vector <vector<string>> load_data(string path)
         while (getline(input_file, line))
         {
             buffer.push_back(split(line));
+        }
+    }
+    return buffer;
+}
+
+vector<string> load_data_as_strings(string path)
+{
+
+    ifstream input_file(path.c_str());
+    vector<string> buffer;
+    if (input_file)
+    {
+        string line;
+        while (getline(input_file, line))
+        {
+            buffer.push_back(line);
         }
     }
     return buffer;

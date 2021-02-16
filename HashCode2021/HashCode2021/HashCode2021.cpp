@@ -6,17 +6,16 @@
 #include <iostream>
 #include "utility.h"
 using namespace std;
+using Pizza = vector<string>;
 
 int main()
 {
     string path = "a_example";
-    auto data = load_data(path);
-    for (auto& v : data)
-    {
-        for (auto& s : v) cout << s << " ";
-        cout << endl;
-    }
+    auto file_data = load_data_as_vector(path);//on récupère les inputs et on les stocke dans un vector<vector<string>>
+    auto first_line = str_to_int_vector(file_data[0]);
+    int nb_pizzas = first_line[0], nb_2team = first_line[1], nb_3team = first_line[2], nb_4team = first_line[3];
+    Pizza pizzas;
 
-    auto numeric_tab = str_to_int_vector(data[0]);
-    print_vector(numeric_tab);
+
+    cin.ignore();
 }
