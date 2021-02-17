@@ -80,7 +80,7 @@ void choice3(map<PairInt, int>& distances, vector<vector<int>>& outputs, vector<
     if (distances.size())
     {
         auto max_elt = choiceMax(distances);
-        vector<int> d;
+        vector<int> d(pizzas.size());
         for (int i = 0; i < pizzas.size(); i++) d.push_back(i);
         for_each(d.begin(), d.end(), [&max_elt, &pizzas](auto& item) {
             item = distanceToList(pizzas[item], {max_elt.first, max_elt.second}, pizzas);
