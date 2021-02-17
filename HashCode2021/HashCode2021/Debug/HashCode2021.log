@@ -1,6 +1,6 @@
 ﻿  HashCode2021.cpp
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(84,27): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(109,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(119,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(121,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(94,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(126,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(136,23): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(138,27): warning C4018: '<' : incompatibilité signed/unsigned
   HashCode2021.vcxproj -> C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\Debug\HashCode2021.exe

@@ -44,6 +44,16 @@ int distanceToList(Pizza& p, initializer_list<int> list, vector<Pizza>& pizzas)
     }
     return sum;
 }
+set<int> available_pizzas(map<PairInt, int>& distances)
+{
+    set <int> dispo;
+    for (auto& p : distances)
+    {
+        dispo.insert(p.first.first);
+        dispo.insert(p.first.second);
+    }
+    return dispo;
+}
 
 void erase_item_from_distances(int item, map<PairInt, int>& distances)
 {
@@ -82,9 +92,16 @@ void choice3(map<PairInt, int>& distances, vector<vector<int>>& outputs, vector<
         auto max_elt = choiceMax(distances);
         vector<int> d;
         for (int i = 0; i < pizzas.size(); i++) d.push_back(i);
-        for_each(d.begin(), d.end(), [&max_elt, &pizzas](auto& item) {
-            item = distanceToList(pizzas[item], {max_elt.first, max_elt.second}, pizzas);
+        auto available = available_pizzas(distances);//numéros des pizzas disponibles
+        
+        for_each(d.begin(), d.end(), [&max_elt, &pizzas, &available](auto& item) {
+            if (available.find(item) != available.end())
+            {
+                item = distanceToList(pizzas[item], { max_elt.first, max_elt.second }, pizzas);
+            }else item = -1;
             });
+        
+        cout << endl;
         int  third_pizza = std::distance(d.begin(), max_element(d.begin(), d.end()));
         outputs.push_back({ 3, max_elt.first, max_elt.second, third_pizza });
         erase_item_from_distances(max_elt.first, distances);
