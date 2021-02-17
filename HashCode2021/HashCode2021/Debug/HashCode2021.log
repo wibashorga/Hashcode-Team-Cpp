@@ -1,6 +1,7 @@
 ﻿  HashCode2021.cpp
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(94,27): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(126,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(136,23): warning C4018: '<' : incompatibilité signed/unsigned
-C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(138,27): warning C4018: '<' : incompatibilité signed/unsigned
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(25,5): warning C4834: abandon de la valeur de retour de la fonction ayant l'attribut 'nodiscard'
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(58,35): warning C4101: 'last' : variable locale non référencée
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(78,35): warning C4101: 'last' : variable locale non référencée
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(78,28): warning C4101: 'third' : variable locale non référencée
+C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\HashCode2021\HashCode2021.cpp(110,27): warning C4018: '<' : incompatibilité signed/unsigned
   HashCode2021.vcxproj -> C:\Users\admin\source\repos\Hashcode-Team-Cpp\HashCode2021\Debug\HashCode2021.exe

@@ -21,6 +21,7 @@ void print_vector(vector<T>& v)
 
 //écrit le contenu d'un vecteur dans un fichier
 
-bool write_vector(vector<string>& v, string path, string sep);
-bool write_vector(vector<int>& v, string path, string sep);
-bool write_vector(vector<double>& v, string path, string sep);
+bool write_vector(vector<string>& v, string path, string sep= " ");
+bool write_vector(vector<int>& v, string path, string sep= " ");
+bool write_vector(vector<double>& v, string path, string sep=" ");
+string join(vector<string>& v);

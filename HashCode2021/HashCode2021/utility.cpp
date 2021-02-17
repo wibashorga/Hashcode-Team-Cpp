@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 using namespace std;
+using std::ios;
 
 vector<string> split(string& s)
 {
@@ -81,7 +82,7 @@ vector<string> load_data_as_strings(string path)
 
 bool write_vector(vector<string>& v, string path, string sep)
 {
-    ofstream output_file(path.c_str());
+    ofstream output_file(path.c_str(), ios::app);
     if (output_file)
     {
         for (auto& item : v) output_file << item << sep;
@@ -94,7 +95,7 @@ bool write_vector(vector<string>& v, string path, string sep)
 
 bool write_vector(vector<int>& v, string path, string sep)
 {
-    ofstream output_file(path.c_str());
+    ofstream output_file(path.c_str(), ios::app);
     if (output_file)
     {
         for (auto& item : v) output_file << item << sep;
@@ -106,7 +107,7 @@ bool write_vector(vector<int>& v, string path, string sep)
 }
 bool write_vector(vector<double>& v, string path, string sep)
 {
-    ofstream output_file(path.c_str());
+    ofstream output_file(path.c_str(), ios::app);
     if (output_file)
     {
         for (auto& item : v) output_file << item << sep;
@@ -115,4 +116,11 @@ bool write_vector(vector<double>& v, string path, string sep)
     bool open = output_file.is_open();
     output_file.close();
     return open;
+}
+
+string join(vector<string>& v)
+{
+    string s;
+    for (auto& str : v) s += str;
+    return s;
 }
