@@ -13,7 +13,7 @@ using Pizza = vector<string>;
 using PairInt = pair<int, int>;
 
 //fonction qui calcule le score
-int score(vector<Pizza>& p)
+/*int score(vector<Pizza>& p)
 {
     
     int sum = 0;
@@ -23,7 +23,7 @@ int score(vector<Pizza>& p)
         sum += s.size() * s.size();
     }
     return sum;
-}
+}*/
 
 /* on crée une fonction qui évalue la distance entre deux pizzas
 plus la distance est grande, plus leurs ingrédients sont différents*/
@@ -34,8 +34,45 @@ int distance(Pizza& p1, Pizza& p2)
     return distance;
 }
 
-//
+void erase_item_from_distances(int item, map<PairInt, int>& distances)
+{
+    for (auto iterator = distances.begin(); iterator != distances.end();)
+    {
+        if (iterator->first.first == item || iterator->first.second == item)
+        {
+            iterator = distances.erase(iterator);
+        }
+        else iterator++;
+    }
+}
 
+void choice2(map<PairInt, int>& distances, vector<vector<int>>& outputs)
+{
+    if (distances.size())
+    {
+        auto max_elt = (*max_element(distances.begin(), distances.end(), [](pair<const pair<int, int>, int>& p1,
+            pair<const pair<int, int>, int>& p2) {
+                return p1.second < p2.second;
+            })).first;
+        outputs.push_back({ 2, max_elt.first, max_elt.second });
+        erase_item_from_distances(max_elt.first, distances);
+        erase_item_from_distances(max_elt.second, distances);
+    }
+}
+void choice3(map<PairInt, int>& distances, vector<vector<int>>& outputs)
+{
+    if (distances.size())
+    {
+        auto max_elt = (*max_element(distances.begin(), distances.end(), [](pair<const pair<int, int>, int>& p1,
+            pair<const pair<int, int>, int>& p2) {
+                return p1.second < p2.second;
+            })).first;
+        erase_item_from_distances(max_elt.first, distances);
+        erase_item_from_distances(max_elt.second, distances);
+        
+
+    }
+}
 
 int main()
 {
@@ -47,14 +84,17 @@ int main()
     vector <vector<int>> outputs;// les différents outputs qu'il faudra afficher avec write_vector
     
     vector<Pizza> pizzas;//les différentes pizzas
+    set<int> available_pizzas;
     for (int i = 1; i < file_data.size(); i++)
     {
         pizzas.push_back(Pizza(file_data[i].begin() + 1, file_data[i].end()));// on initialise pizzas
+        available_pizzas.insert(i);
        
     }
     //for (auto& pizza : pizzas) print_vector(pizza);
     
     map<pair<int, int>, int> distances;// on stocke la distance entre chaque pizza qui correspon au nombre d'ingrédients différents
+    
     for (int i = 0; i < pizzas.size(); i++)
     {
         for (int j = i; j < pizzas.size(); j++)
@@ -62,22 +102,25 @@ int main()
             if (i < j) distances[PairInt(i, j)] = distance(pizzas[i], pizzas[j]);
         }
     }
-    for (auto& p : distances) cout << "(" << p.first.first << ", " << p.first.second << ") :" << p.second << endl;
     
     /* La startégie consiste à fournir d'abord les équipes de deux puisqu'elles ont le moins de risque 
     * de se retrouver avec des doublons.
     * Pour décider quelles pizzas on leur fournit, on utilise la fonction de distance entre deux pizzas
     * qui permet de maximiser le nombre d'ingrédients différents
     */
-
-    for (int team = 1; team <= nb_2team; team++)
-    {
-        auto it_max = max_element(distances.begin(), distances.end(), [](pair<const pair<int,int>, int>& p1, 
-            pair<const pair<int,int>, int>& p2) {
-            return p1.second < p2.second;
-            });
-        cout << "max :" << it_max->first.first << ", " << it_max->first.second << endl;
-    }
+    
+   for (int i = 0; i < nb_2team; i++)         
+   {
+       choice2(distances, outputs);
+       if (!distances.size()) break;
+   }
+   for (auto& v : outputs) print_vector(v);
+   for (auto& p : distances) cout << "(" << p.first.first << ", " << p.first.second << ") :" << p.second << endl;
+   
+            
+        
+        
+    
 
 
     cin.ignore();
