@@ -79,3 +79,15 @@ vector<string> load_data_as_strings(string path)
     return buffer;
 }
 
+bool write_vector(vector<string>& v, string path, string sep)
+{
+    ofstream output_file(path.c_str());
+    if (output_file)
+    {
+        for (auto& item : v) output_file << item << sep;
+        output_file << endl;
+    }
+    bool open = output_file.is_open();
+    output_file.close();
+    return open;
+}

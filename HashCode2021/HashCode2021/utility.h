@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -17,3 +18,7 @@ void print_vector(vector<T>& v)
 {
     for (auto& item : v) cout << item << " ";
 }
+
+//écrit le contenu d'un vecteur dans un fichier
+
+bool write_vector(vector<string>& v, string path, string sep);
